@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
 import api from '../../api';
+import "./style.css"
+import PokeModal from '../modal/pokeModal';
 
-
-
-function PokeCard(url){
+function PokeCard({url}){
+    let imgUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'
     const [pokemonInfo, setPokemonInfo] = useState();
+    const [open, setOpen] = useState(false)
+    const handleOpen = () => setOpen(true)
+    const handleClose = () => setOpen(false)
 
-    function abrirModal(id,nome,front_image,back_image,types,weight,height){
-        console.log(id,nome,front_image,back_image,weight,height,types)
-    }
-    
-    
     useEffect(() =>{
         api
-        .get(url.url)
+        .get(url)
         .then((response) => {
             setPokemonInfo(response.data)
         })
@@ -27,19 +26,34 @@ function PokeCard(url){
             <div>loading</div>
         )
     }
-    console.log(pokemonInfo)
+    if(pokemonInfo['types'][1] !== undefined){
+        return (        
+            <div className='cardPokemon'>
+                <div className='types'>
+                <i className='pokeType'>{pokemonInfo['types'][0].type.name}</i>
+                <i className='pokeType'>{pokemonInfo['types'][1].type.name}</i>
+                </div>
+                <h6 className='pokeNome'>{pokemonInfo.name}</h6>
+                <div className='testeimg'>
+                    <img src={imgUrl + pokemonInfo.id + '.png'} alt="" 
+                    onClick={() => handleOpen(true)} className='pokeImage'/>
+                </div>
+                <PokeModal open={open} aoFechar={handleClose} pokemonInfo={pokemonInfo}/>
+            </div>
+        );
+    }
+
     return(
-        <div>
-            {pokemonInfo.name}
-            <img src={pokemonInfo.sprites.front_default} alt="" 
-            onClick={() => {
-                abrirModal(pokemonInfo.id, 
-                    pokemonInfo.name,
-                    pokemonInfo.sprites.front_default,
-                    pokemonInfo.sprites.back_default,
-                    pokemonInfo.weight,
-                    pokemonInfo.height,
-                    pokemonInfo.types)}}/>
+        <div className='cardPokemon'>
+            <div className='types'>
+            <i className='pokeType'>{pokemonInfo['types'][0].type.name}</i>
+            </div>
+                <h6 className='pokeNome'>{pokemonInfo.name}</h6>
+                <div className='testeimg'>
+                    <img src={imgUrl + pokemonInfo.id + '.png'} alt="" 
+                    onClick={() => handleOpen(true)} className='pokeImage'/>
+                </div>
+            <PokeModal open={open} aoFechar={handleClose} pokemonInfo={pokemonInfo}/>
         </div>
     )
 }

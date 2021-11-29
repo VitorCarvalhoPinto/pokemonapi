@@ -1,0 +1,14 @@
+.areaCards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.logo{
+    width: 225px;
+    height: 75px;
+    margin: 30px auto;
+    display: block;
+}
+

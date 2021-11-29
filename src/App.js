@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { Component } from 'react';
 import ListaPokemons from './components/tabela/ListaPokemons.jsx';
 import './App.css';
 

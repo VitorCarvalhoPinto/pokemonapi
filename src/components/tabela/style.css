@@ -1,8 +1,13 @@
 .areaCards{
+    width: 1200px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
+    position: absolute;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
 }
 
 .logo{

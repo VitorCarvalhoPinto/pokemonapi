@@ -1,38 +1,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
 
-.pokeNome{
+.modalTabela{
+    width: 100%;
+    display: flex;
+}
+
+li{
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 15px;
     line-height: 30px;
     height: 30px;
     text-align: center;
 }
 
-.testeimg{
-    width: 130px;
-}
-
-.pokeImage{
-    width: 100%;
-    height: auto;
-}
-
-.cardPokemon{
-    flex: 0 0 33.33333333%;
-    margin: 15px;
-    height: 280px;
-    width: 200px;
-    border-radius: 14px;
-    background-color: rgb(167, 167, 167);
-    display: flex;
-    flex-direction: column-reverse;
-    align-content: center;
-    justify-content: space-around;
-    align-items: center;
-}
 
 .pokeType{
     font-family: 'Nunito', sans-serif;

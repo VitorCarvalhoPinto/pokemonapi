@@ -26,12 +26,14 @@ function PokeCard({url}){
             <div>loading</div>
         )
     }
+    let pokeType1 = pokemonInfo['types'][0].type.name + ' pokeType'
     if(pokemonInfo['types'][1] !== undefined){
+        let pokeType2 = pokemonInfo['types'][1].type.name + ' pokeType'
         return (        
             <div className='cardPokemon'>
                 <div className='types'>
-                <i className='pokeType'>{pokemonInfo['types'][0].type.name}</i>
-                <i className='pokeType'>{pokemonInfo['types'][1].type.name}</i>
+                <i className={pokeType1}>{pokemonInfo['types'][0].type.name}</i>
+                <i className={pokeType2}>{pokemonInfo['types'][1].type.name}</i>
                 </div>
                 <h6 className='pokeNome'>{pokemonInfo.name}</h6>
                 <div className='testeimg'>
@@ -43,10 +45,11 @@ function PokeCard({url}){
         );
     }
 
+
     return(
         <div className='cardPokemon'>
             <div className='types'>
-            <i className='pokeType'>{pokemonInfo['types'][0].type.name}</i>
+            <i className={pokeType1}>{pokemonInfo['types'][0].type.name}</i>
             </div>
                 <h6 className='pokeNome'>{pokemonInfo.name}</h6>
                 <div className='testeimg'>

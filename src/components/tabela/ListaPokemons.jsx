@@ -39,6 +39,7 @@ function ListaPokemons(){
             </div>
           ))}
       </div>
+      
       <button onClick={previous}>Anterior</button>
       <button onClick={next}>Proximo</button>
     </>

@@ -33,7 +33,6 @@ function ListaPokemons(){
       <div>loading</div>
     )
   }
-console.log(next)
     return(
     <>
       <img src={logo} alt="" className='logo'/>
@@ -45,7 +44,7 @@ console.log(next)
           ))}
       </div>
       
-      <div>
+      <div className="Button">
         <Button variant="outlined" onClick={() => requestPokemon(previous)}>Anterior</Button>
         <Button variant="outlined" onClick={() => requestPokemon(next)}>Proximo</Button>
       </div>

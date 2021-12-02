@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import { Modal, Box } from "@mui/material"
 import './style.css'
+import { Switch } from '@mui/material';
 let style = {
     alignItems: 'center',
     justifyContent: 'center',
@@ -20,7 +22,22 @@ let style = {
 };
 
 
-function abrirModal({open, aoFechar, pokemonInfo}){
+function AbrirModal({open, aoFechar, pokemonInfo}){
+
+    const [img, setImg] = useState(pokemonInfo.sprites.front_default);
+    useEffect(() =>{
+        setImg(pokemonInfo.sprites.front_default)
+    },[pokemonInfo.sprites.front_default])
+    const getSwitchVal = (e,val) =>{
+        if(val === true){
+            setImg(pokemonInfo.sprites.front_shiny)
+        }
+        else{
+            setImg(pokemonInfo.sprites.front_default)
+        }
+    }
+
+
 
     let hp = pokemonInfo.stats[0]
     let attack = pokemonInfo.stats[1]
@@ -28,6 +45,8 @@ function abrirModal({open, aoFechar, pokemonInfo}){
     let special_attack = pokemonInfo.stats[3]
     let special_defense = pokemonInfo.stats[4]
     let velocity = pokemonInfo.stats[5]
+
+    
     return(
         <Modal 
             open={open}
@@ -36,7 +55,9 @@ function abrirModal({open, aoFechar, pokemonInfo}){
             aria-describedby="modal-modal-description"
         >
         <Box sx={style}>
-            <p><img src={pokemonInfo.sprites.front_default} alt=''/></p>
+        <Switch  
+            onChange={getSwitchVal}/> Shiny
+            <p><img src={img} alt=''/></p>
             <div className="TitleName">
                 <i className="PokeMainColor">{pokemonInfo.name}</i>
                 <i className="pokeId">#{pokemonInfo.id}</i>
@@ -81,4 +102,4 @@ function abrirModal({open, aoFechar, pokemonInfo}){
     );
 }
 
-export default abrirModal;
+export default AbrirModal;

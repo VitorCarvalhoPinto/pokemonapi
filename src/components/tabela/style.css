@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     align-items: center;
     position: absolute;
-    margin: 0 auto;
+    margin: 50px auto;
     right: 0;
     left: 0;
 }
@@ -17,3 +17,10 @@
     display: block;
 }
 
+.Button{
+    width: 250px;
+    position: absolute;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}

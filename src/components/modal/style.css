@@ -1,21 +1,62 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
 
+
+.PokeMainColor{
+    color: #0F0F2E;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.TitleName{
+    margin-bottom: 30px;
+}
+
+.pokeId{
+    color: rgba(29, 21, 113, 0.4);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title{
+    font-weight: bold;
+    margin: 25px 12px;
+    font-size: 16px;
+}
+
 .modalTabela{
     width: 100%;
     display: flex;
+    height: 400px;
 }
 
-li{
+table{
+    border-collapse: separate;
+    border-spacing: 10px;
+    *border-collapse: expression('separate', cellSpacing='10px');
+}
+
+p img{
+    height: 116px;
+    width: 126px;
+}
+
+table tr{
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 15px;
-    line-height: 30px;
-    height: 30px;
     text-align: center;
 }
+.atrPrincipal td{
+    margin: 12px 12px 12px 12px;
+    padding: 8px;
+}
 
+.atrStat td{
+    margin: 12px 12px 12px 12px;
+    padding: 5px;
+}
 
 .pokeType{
     font-family: 'Nunito', sans-serif;
@@ -24,6 +65,11 @@ li{
     border-radius: 4px;
     padding: 4px;
     margin: 0 4px;
+}
+
+.pokeId{
+    font-weight: bold;
+    color: rgba(29, 21, 113, 0.4);
 }
 
 .bug{
@@ -58,7 +104,7 @@ li{
     background: #5ECCD9;
 }
 
-.eletric{
+.electric{
     background: #FBFB72;
 }
 

@@ -3,24 +3,29 @@ import api from '../../api';
 import PokeCard from '../card/PokeCard';
 import "./style.css"
 import logo from '../../titulo pokemon.png';
-
+import { Button } from '@mui/material' 
 function ListaPokemons(){
   const [pokemon, setPokemon] = useState();
   const [next, setNext] = useState('');
   const [previous, setPrevious] = useState('');
 
 
-  useEffect(() =>{
+  function requestPokemon(url){
     api
-      .get('https://pokeapi.co/api/v2/pokemon')
-      .then((response) => {
-        setPrevious(response.data.previous)
-        setNext(response.data.next)
-        setPokemon(response.data.results)
-    })
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
+    .get(url)
+    .then((response) => {
+      setPrevious(response.data.previous)
+      setNext(response.data.next)
+      setPokemon(response.data.results)
+  })
+  .catch((err) => {
+    console.error("ops! ocorreu um erro" + err);
+  });
+  }
+
+
+  useEffect(() =>{
+    requestPokemon('https://pokeapi.co/api/v2/pokemon')
   },[])
 
   if(pokemon === undefined){
@@ -28,7 +33,7 @@ function ListaPokemons(){
       <div>loading</div>
     )
   }
-
+console.log(next)
     return(
     <>
       <img src={logo} alt="" className='logo'/>
@@ -40,8 +45,10 @@ function ListaPokemons(){
           ))}
       </div>
       
-      <button onClick={previous}>Anterior</button>
-      <button onClick={next}>Proximo</button>
+      <div>
+        <Button variant="outlined" onClick={() => requestPokemon(previous)}>Anterior</Button>
+        <Button variant="outlined" onClick={() => requestPokemon(next)}>Proximo</Button>
+      </div>
     </>
     );
   

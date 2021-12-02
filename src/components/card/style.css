@@ -26,7 +26,7 @@
     height: 280px;
     width: 200px;
     border-radius: 14px;
-    background-color: rgb(167, 167, 167);
+    background-color: rgb(226, 226, 226);
     display: flex;
     flex-direction: column-reverse;
     align-content: center;
@@ -35,6 +35,7 @@
 }
 
 .pokeType{
+    height: 15px;
     font-family: 'Nunito', sans-serif;
     color: white;
     background-color: aqua; 
